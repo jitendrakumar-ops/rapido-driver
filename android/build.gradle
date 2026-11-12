@@ -1,0 +1,38 @@
+buildscript {
+    ext {
+        buildToolsVersion = "36.0.0"
+        minSdkVersion = 24
+        compileSdkVersion = 36
+        targetSdkVersion = 36
+        ndkVersion = "26.3.11579264"
+        kotlinVersion = "2.1.20"
+        playServicesLocationVersion = "21.3.0"
+        googlePlayServicesLocationVersion = "21.3.0"
+        googlePlayServicesVersion = "21.3.0"
+    }
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath("com.android.tools.build:gradle")
+        classpath("com.facebook.react:react-native-gradle-plugin")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin")
+        classpath('com.google.gms:google-services:4.4.2')
+    }
+}
+
+apply plugin: "com.facebook.react.rootproject"
+
+subprojects { subproject ->
+    subproject.tasks.configureEach { task ->
+        if (task.name.startsWith("verify") && task.name.endsWith("Resources")) {
+            task.enabled = false
+        }
+        if (task.name.startsWith("compile") && task.name.endsWith("Kotlin")) {
+            task.dependsOn(subproject.tasks.matching { it.name.startsWith("generate") && it.name.endsWith("BuildConfig") })
+        }
+    }
+}
+
+

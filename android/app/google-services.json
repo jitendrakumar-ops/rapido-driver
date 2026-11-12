@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "771099347422",
+    "project_id": "go-drop-f3872",
+    "storage_bucket": "go-drop-f3872.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:771099347422:android:876e925ce10fc13060f54f",
+        "android_client_info": {
+          "package_name": "com.GodropDriver"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAODNUmvhUrUl3lZoQU8g9Mjt-cKjwrnEQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
